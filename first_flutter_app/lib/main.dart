@@ -96,7 +96,7 @@ class _FirstPage extends State<FirstPage> {
           content3: maps[i]['id']);
     });
   }*/
-  List<DataColumn> _getColumns() {
+  /*List<DataColumn> _getColumns() {
     List<DataColumn> dataColumn = [];
     for (var i in coinlist) {
       if (i == 'rank') {
@@ -126,7 +126,7 @@ class _FirstPage extends State<FirstPage> {
       columns: _getColumns(),
       rows: _getRows(),
     );
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -220,8 +220,8 @@ class _FirstPage extends State<FirstPage> {
                 child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
                   child:SizedBox(
-                      child: _getDataTable(),
-                      Column(
+                    //  child: _getDataTable(),
+                      child: Column(
                         children: <Widget>[
                           DataTable(
                               columns: <DataColumn>[
@@ -242,7 +242,7 @@ class _FirstPage extends State<FirstPage> {
                                     label: Text("항목5")
                                 ),
                               ],
-                              rows: coinList
+                              rows:[]// coinList
                               //어떤 버튼을 눌렀느냐에 따라 보여야 될게 다름
                               /*
                               리스트를 rows 안에 배열 넣기
