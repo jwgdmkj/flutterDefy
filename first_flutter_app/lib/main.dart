@@ -96,26 +96,26 @@ class _FirstPage extends State<FirstPage> {
           content3: maps[i]['id']);
     });
   }*/
-  /*List<DataColumn> _getColumns() {
+  List<DataColumn> _getColumns() {
     List<DataColumn> dataColumn = [];
-    for (var i in coinlist) {
-      if (i == 'rank') {
-        dataColumn.add(DataColumn(label: Text(i), tooltip: i,
-            numeric: true, onSort: _dataColumnSort));
-      } else {
-        dataColumn.add(DataColumn(label: Text(i), tooltip: i)); }
-    }
+    dataColumn.add(DataColumn(label: Text("항목1")));
+    dataColumn.add(DataColumn(label: Text("항목2")));
+    dataColumn.add(DataColumn(label: Text("항목3")));
+    dataColumn.add(DataColumn(label: Text("항목4")));
+    dataColumn.add(DataColumn(label: Text("항목5")));
     return dataColumn;
   }
 
   List<DataRow> _getRows() {
     List<DataRow> dataRow = [];
     for (var i=0; i<coinList.length-1; i++) {
-      var csvDataCells = csvRows[i].split(',');
       List<DataCell> cells = [];
-      for(var j=0; j<csvDataCells.length; j++) {
-        cells.add(DataCell(Text(csvDataCells[j])));
-      }
+      cells.add(DataCell(Text(coinList[i].content1)));
+      cells.add(DataCell(Text(coinList[i].content2)));
+      cells.add(DataCell(Text(coinList[i].content3)));
+      cells.add(DataCell(Text(coinList[i].content4)));
+      cells.add(DataCell(Text(coinList[i].content5)));
+
       dataRow.add(DataRow(cells: cells));
     }
     return dataRow;
@@ -123,10 +123,11 @@ class _FirstPage extends State<FirstPage> {
 
   Widget _getDataTable() {
     return DataTable(
+      horizontalMargin: 12.0, columnSpacing: 28.0,
       columns: _getColumns(),
       rows: _getRows(),
     );
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -219,9 +220,10 @@ class _FirstPage extends State<FirstPage> {
                 padding: EdgeInsets.all(15),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
-                  child:SizedBox(
-                    //  child: _getDataTable(),
-                      child: Column(
+                  //child: SizedBox(
+                  child:SingleChildScrollView(
+                      child: _getDataTable(),
+                      /*child: Column(
                         children: <Widget>[
                           DataTable(
                               columns: <DataColumn>[
@@ -242,15 +244,25 @@ class _FirstPage extends State<FirstPage> {
                                     label: Text("항목5")
                                 ),
                               ],
-                              rows:[]// coinList
+                              rows:[
+                                DataRow(
+                                  cells: [
+                                    DataCell(Text("${coinList[0].content1}")),
+                                    DataCell(Text("${coinList[0].content2}")),
+                                    DataCell(Text("${coinList[0].content3}")),
+                                    DataCell(Text("${coinList[0].content4}")),
+                                    DataCell(Text("${coinList[0].content5}")),
+                                  ]
+                                )
+                              ]// coinList
                               //어떤 버튼을 눌렀느냐에 따라 보여야 될게 다름
-                              /*
+                              *//*
                               리스트를 rows 안에 배열 넣기
-                               */
+                               *//*
 
                           ),
                         ],
-                      )
+                      )*/
                   ),
                 ),
               )
