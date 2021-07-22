@@ -110,12 +110,27 @@ class _FirstPage extends State<FirstPage> {
     List<DataRow> dataRow = [];
     for (var i=0; i<coinList.length-1; i++) {
       List<DataCell> cells = [];
-      cells.add(DataCell(Text(coinList[i].content1)));
-      cells.add(DataCell(Text(coinList[i].content2)));
-      cells.add(DataCell(Text(coinList[i].content3)));
-      cells.add(DataCell(Text(coinList[i].content4)));
-      cells.add(DataCell(Text(coinList[i].content5)));
-
+      if(genre == 1) {
+        cells.add(DataCell(Text(coinList[i].content1)));
+        cells.add(DataCell(Text(coinList[i].content2)));
+        cells.add(DataCell(Text(coinList[i].content3)));
+        cells.add(DataCell(Text(coinList[i].content4)));
+        cells.add(DataCell(Text(coinList[i].content5)));
+      }
+      else if(genre == 2) {
+        cells.add(DataCell(Text(coinList[i].content5)));
+        cells.add(DataCell(Text(coinList[i].content4)));
+        cells.add(DataCell(Text(coinList[i].content3)));
+        cells.add(DataCell(Text(coinList[i].content2)));
+        cells.add(DataCell(Text(coinList[i].content1)));
+      }
+      else if(genre == 3) {
+        cells.add(DataCell(Text(coinList[i].content3)));
+        cells.add(DataCell(Text(coinList[i].content2)));
+        cells.add(DataCell(Text(coinList[i].content4)));
+        cells.add(DataCell(Text(coinList[i].content1)));
+        cells.add(DataCell(Text(coinList[i].content5)));
+      }
       dataRow.add(DataRow(cells: cells));
     }
     return dataRow;
