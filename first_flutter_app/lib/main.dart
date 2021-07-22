@@ -47,23 +47,6 @@ class _FirstPage extends State<FirstPage> {
   List<Coin> coinList = [Coin("a","b","c","d","e"),
     Coin("e","f","g","h","i"), Coin("j","k","l","m","n"),
     Coin("o","p","q","r","s"), Coin("t","u","v","w","x")];
- // coinList.insert(new Coin("a","b","c","d","e"));
-//  List<Coin> coinList = List.generate(
- //   5,
-  //    (i) => Coin('idx $i',
-   //   'so $i', 'and $i', 'but $i', 'also $i'),
-  //);
-
-  /*
-      Coin(1, "a", "b", "c", "d"),
-    Coin(2, "a", "b", "c", "d"),
-    Coin(3, "a", "b", "c", "d"),
-    Coin(4, "a", "b", "c", "d"),
-    Coin(5, "a", "b", "c", "d"),
-
-  external factory List.generate(int length, E generator(int index),
-    {bool growable = true});
-   */
 
   ScrollController _scrollController = new ScrollController();
   int page = 1;
@@ -77,11 +60,8 @@ class _FirstPage extends State<FirstPage> {
           _scrollController.position.maxScrollExtent &&
           !_scrollController.position.outOfRange) {
         page++;
-        //getAreaList(area: area.value, contentTypeId: kind.value, page: page);
       }
     });
-
-  //  consList = getCoin();
   }
 
   /*Future<List<Coin>> getCoin() async {
@@ -138,7 +118,7 @@ class _FirstPage extends State<FirstPage> {
 
   Widget _getDataTable() {
     return DataTable(
-      horizontalMargin: 12.0, columnSpacing: 28.0,
+      horizontalMargin: 100.0, columnSpacing: 120.0,
       columns: _getColumns(),
       rows: _getRows(),
     );
@@ -173,9 +153,23 @@ class _FirstPage extends State<FirstPage> {
                 child:RaisedButton(
                     child: Text('submit'),
                     onPressed: () {
-                      setState( () {
-                      });
-                    }),
+                        AlertDialog dialog = new AlertDialog(
+                          title: Text('할 일'),
+                          content: Text('기타 뭐 받아서 할거'),
+                          actions: <Widget> [
+                            FlatButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text('x')
+                            ),
+                            ]
+                        );
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) => dialog);
+                      },
+                    ),
               ),
               Padding(
                 padding: EdgeInsets.only(right: MediaQuery.of(context).size.width / 3),
@@ -238,46 +232,6 @@ class _FirstPage extends State<FirstPage> {
                   //child: SizedBox(
                   child:SingleChildScrollView(
                       child: _getDataTable(),
-                      /*child: Column(
-                        children: <Widget>[
-                          DataTable(
-                              columns: <DataColumn>[
-                                DataColumn(
-                                    label: Text("항목1")
-                                ),
-                                DataColumn(
-                                  label: Text("항목2"),
-                                  numeric: true,
-                                ),
-                                DataColumn(
-                                    label: Text("항목3")
-                                ),
-                                DataColumn(
-                                    label: Text("항목4")
-                                ),
-                                DataColumn(
-                                    label: Text("항목5")
-                                ),
-                              ],
-                              rows:[
-                                DataRow(
-                                  cells: [
-                                    DataCell(Text("${coinList[0].content1}")),
-                                    DataCell(Text("${coinList[0].content2}")),
-                                    DataCell(Text("${coinList[0].content3}")),
-                                    DataCell(Text("${coinList[0].content4}")),
-                                    DataCell(Text("${coinList[0].content5}")),
-                                  ]
-                                )
-                              ]// coinList
-                              //어떤 버튼을 눌렀느냐에 따라 보여야 될게 다름
-                              *//*
-                              리스트를 rows 안에 배열 넣기
-                               *//*
-
-                          ),
-                        ],
-                      )*/
                   ),
                 ),
               )
