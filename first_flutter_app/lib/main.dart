@@ -33,20 +33,6 @@ class MyApp extends StatelessWidget {
         },
       );
     }
-    /*
-    else {
-      return MaterialApp(
-        title: _title,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        initialRoute: '/',
-        routes: {
-          '/': (context) => FirstPage(),
-          '/second': (context) => SecondPage()
-        },
-      );*/
-   // }
 }
 
 class FirstPage extends StatefulWidget {
